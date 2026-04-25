@@ -1,0 +1,25 @@
+{% extends 'projects/base.html' %}
+
+{% block content %}
+    <h1 class="page-title">Волонтерлік жобалар тізімі</h1>
+
+    <div class="filters">
+        <a href="{% url 'project_list' %}" class="filter-btn">Барлығы</a>
+        {% for cat in categories %}
+            <a href="{% url 'project_list' %}?category={{ cat.id }}" class="filter-btn">{{ cat.name }}</a>
+        {% endfor %}
+    </div>
+
+    <div class="project-grid">
+        {% for project in projects %}
+            <div class="project-card">
+                <a href="{% url 'project_detail' project.id %}" class="project-link">
+                    <strong>{{ project.title }}</strong>
+                </a> 
+                <span class="project-info">{{ project.category.name }} • {{ project.location }}</span>
+            </div>
+        {% empty %}
+            <p class="empty-msg">Бұл категорияда әзірге жобалар жоқ.</p>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Волонтерлік платформа{% endblock %}</title>
+    
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Волонтерлік платформа</h1>
+            <nav>
+                <a href="{% url 'index' %}">Басты бет</a>
+                <a href="{% url 'project_list' %}">Жобалар тізімі</a>
+                <a href="{% url 'add_project' %}">Жоба қосу</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="content">
+            {% block content %}
+            {% endblock %}
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Волонтерлік жобалар платформасы. </p>
+        </div>
+    </footer>
+</body>
+</html>

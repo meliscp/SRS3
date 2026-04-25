@@ -1,0 +1,14 @@
+{% extends 'projects/base.html' %}
+
+{% block title %}Жаңа жоба қосу{% endblock %}
+
+{% block content %}
+    <h1>Жаңа волонтерлік жоба қосу</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Сақтау</button>
+    </form>
+    <br>
+    <a href="{% url 'project_list' %}">Болдырмау</a>
+{% endblock %}
